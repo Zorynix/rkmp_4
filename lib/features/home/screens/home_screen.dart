@@ -3,6 +3,10 @@ import '../../../shared/models/user_data.dart';
 import '../../lists/screens/column_list_screen.dart';
 import '../../lists/screens/listview_screen.dart';
 import '../../lists/screens/listview_separated_screen.dart';
+import '../../lists/screens/overflow_error_screen.dart';
+import '../../lists/screens/simple_listview_separated_screen.dart';
+import '../../lists/screens/simple_gesture_key_demo_screen.dart';
+import '../../lists/screens/bad_gesture_demo_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -99,6 +103,62 @@ class _HomeScreenState extends State<HomeScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => const ListViewSeparatedScreen(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildListTypeCard(
+                    context: context,
+                    title: 'Column без прокрутки (Ошибка!)',
+                    description: 'Демонстрация ошибки переполнения RenderFlex overflow',
+                    icon: Icons.error_outline,
+                    color: Colors.red,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const OverflowErrorScreen(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildListTypeCard(
+                    context: context,
+                    title: 'Простой ListView.separated',
+                    description: 'Простой пример использования ListView.separated',
+                    icon: Icons.list_alt,
+                    color: Colors.purple,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SimpleListViewSeparatedScreen(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildListTypeCard(
+                    context: context,
+                    title: 'Демо GestureDetector',
+                    description: 'Пример использования GestureDetector с ValueKey',
+                    icon: Icons.touch_app,
+                    color: Colors.teal,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SimpleGestureKeyDemoScreen(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildListTypeCard(
+                    context: context,
+                    title: 'Проблема с GestureDetector',
+                    description: 'Демонстрация проблемы при отсутствии ключей',
+                    icon: Icons.warning,
+                    color: Colors.redAccent,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BadGestureDemoScreen(),
                       ),
                     ),
                   ),
